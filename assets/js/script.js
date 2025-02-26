@@ -1,3 +1,6 @@
+// Wait for the DOM to finish loading before running the game
+// Get the button elements and add event listeners to them
+
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
 
@@ -7,17 +10,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("You clicked Submit!");
             } else {
                 let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);
-                
+                runGame(gameType);
             }
-        })
+        });
     }
 
-// function runGame() {
-// if document.querySelector("class",".btn-big").click() {
-//     document.querySelector("class",".btn-big").style.display = "none";
-// }
+});
 
+function runGame(gameType) {
+
+    // Creates two random numbers between 1 and 25
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
+    document.getElementById("operand1").textContent = num1;
+    document.getElementById("operand2").textContent = num2;
+    switch (gameType) {
+        case "addition":
+            alert(gameType);
+            document.getElementById("operator").textContent = "+";
+            break;
+        case "substract":
+            alert(gameType);
+            document.getElementById("operator").textContent = "-";
+            break;
+        case "multiply":
+            alert(gameType);
+            document.getElementById("operator").textContent = "*";
+            break;
+        case "division":
+            alert(gameType);
+            document.getElementById("operator").textContent = "/";
+            break;        
+}
+}
 function checkAnswer() {
 
 }
@@ -34,10 +59,14 @@ function incrementWrongAnswer() {
 
 }
 
-function displayAdditionQuestion() {
+function displayAdditionQuestion(operand1, operand2) {
 
 }
 
 function displaySubtractQuestion() {
 
+}
+
+function displayMultiplyQuestion() {
+    
 }
